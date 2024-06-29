@@ -81,7 +81,7 @@ EXTRA_REQUIRE = {
 }
 
 DESCRIPTION = (
-    'The official gpt4free repository | various collection of powerful language models'
+    'Fork of the gpt4free repository | EDUCATIONAL PURPOSES ONLY | various collection of powerful language models'
 )
 
 # Setting up
@@ -103,10 +103,10 @@ setup(
     entry_points={
         'console_scripts': ['g4fu=g4f.cli:main'],
     },
-    url='https://github.com/XinTheDark/gpt4free-u',  # Link to your GitHub repository
+    url='https://github.com/XInTheDark/gpt4free-u',  # Link to your GitHub repository
     project_urls={
-        'Source Code': 'https://github.com/XinTheDark/gpt4free-u',  # GitHub link
-        'Bug Tracker': 'https://github.com/XinTheDark/gpt4free-u/issues',  # Link to issue tracker
+        'Source Code': 'https://github.com/XInTheDark/gpt4free-u',  # GitHub link
+        'Bug Tracker': 'https://github.com/XInTheDark/gpt4free-u/issues',  # Link to issue tracker
     },
     keywords=[
         'python',
