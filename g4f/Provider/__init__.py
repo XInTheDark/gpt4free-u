@@ -25,6 +25,7 @@ from .Cnote            import Cnote
 from .Cohere           import Cohere
 from .DeepInfra        import DeepInfra
 from .DeepInfraImage   import DeepInfraImage
+from .DuckDuckGo       import DuckDuckGo
 from .Feedough         import Feedough
 from .FlowGpt          import FlowGpt
 from .FreeChatgpt      import FreeChatgpt
