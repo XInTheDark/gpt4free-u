@@ -24,6 +24,7 @@ EXTRA_REQUIRE = {
         "duckduckgo-search>=5.0"  ,# internet.search
         "beautifulsoup4",          # internet.search and bing.create_images
         "brotli",                  # openai, bing
+        "nodriver",                # you
         # webdriver
         #"undetected-chromedriver>=3.5.5",
         #"setuptools", 
