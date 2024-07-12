@@ -166,7 +166,7 @@ gpt_4o = Model(
     name          = 'gpt-4o',
     base_provider = 'openai',
     best_provider = IterListProvider([
-        You, Liaobots, Chatgpt4o, AI365VIP
+        Chatgpt4o, You, Liaobots, AI365VIP
     ])
 )
 
@@ -201,7 +201,7 @@ llama3_8b_instruct = Model(
 llama3_70b_instruct = Model(
     name          = "meta-llama/Meta-Llama-3-70B-Instruct",
     base_provider = "meta",
-    best_provider = IterListProvider([DeepInfra, PerplexityLabs, Replicate, HuggingChat, DDG])
+    best_provider = IterListProvider([DeepInfra, DDG, Replicate, PerplexityLabs, HuggingChat])
 )
 
 codellama_34b_instruct = Model(
@@ -221,7 +221,7 @@ codellama_70b_instruct = Model(
 mixtral_8x7b = Model(
     name          = "mistralai/Mixtral-8x7B-Instruct-v0.1",
     base_provider = "huggingface",
-    best_provider = IterListProvider([DeepInfra, HuggingFace, PerplexityLabs, HuggingChat, DDG])
+    best_provider = IterListProvider([DeepInfra, DDG, HuggingFace, PerplexityLabs, HuggingChat])
 )
 
 mistral_7b_v02 = Model(
