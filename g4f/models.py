@@ -83,7 +83,6 @@ gpt_35_long = Model(
         ChatgptFree,
         FreeChatgpt,
         DDG,
-        DuckDuckGo,
         AI365VIP,
         Pizzagpt,
     ])
@@ -306,7 +305,7 @@ claude_3_sonnet = Model(
 claude_3_haiku = Model(
     name          = 'claude-3-haiku',
     base_provider = 'anthropic',
-    best_provider = IterListProvider([DDG, DuckDuckGo, AI365VIP])
+    best_provider = IterListProvider([DDG, AI365VIP])
 )
 
 
