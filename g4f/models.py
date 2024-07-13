@@ -58,9 +58,6 @@ default = Model(
     name          = "",
     base_provider = "",
     best_provider = IterListProvider([
-        Bing,
-        You,
-        OpenaiChat,
         FreeChatgpt,
         AI365VIP,
         Chatgpt4o,
@@ -68,6 +65,9 @@ default = Model(
         ChatgptFree,
         Koala,
         Pizzagpt,
+        Bing,
+        You,
+        OpenaiChat,
     ])
 )
 
@@ -76,15 +76,15 @@ gpt_35_long = Model(
     name          = 'gpt-3.5-turbo',
     base_provider = 'openai',
     best_provider = IterListProvider([
-        FreeGpt,
-        You,
-        OpenaiChat,
         Koala,
         ChatgptFree,
         FreeChatgpt,
         DDG,
         AI365VIP,
         Pizzagpt,
+        FreeGpt,
+        You,
+        OpenaiChat,
     ])
 )
 
@@ -99,15 +99,15 @@ gpt_35_turbo = Model(
     name          = 'gpt-3.5-turbo',
     base_provider = 'openai',
     best_provider = IterListProvider([
-        FreeGpt,
-        You,
         Koala,
-        OpenaiChat,
         ChatgptFree,
         FreeChatgpt,
         DDG,
         AI365VIP,
         Pizzagpt,
+        FreeGpt,
+        You,
+        OpenaiChat,
     ])
 )
 
@@ -166,7 +166,7 @@ gpt_4o = Model(
     name          = 'gpt-4o',
     base_provider = 'openai',
     best_provider = IterListProvider([
-        Chatgpt4o, You, Liaobots, AI365VIP
+        Chatgpt4o, AI365VIP, Liaobots, You,
     ])
 )
 
@@ -266,7 +266,7 @@ gemini = Model(
 gemini_pro = Model(
     name          = 'gemini-pro',
     base_provider = 'Google',
-    best_provider = IterListProvider([GeminiPro, You, GeminiProChat])
+    best_provider = IterListProvider([GeminiProChat, GeminiPro, You])
 )
 
 # gemma
