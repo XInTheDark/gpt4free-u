@@ -76,7 +76,6 @@ default = Model(
         Koala,
         Pizzagpt,
         Bing,
-        You,
         OpenaiChat,
     ])
 )
@@ -141,7 +140,7 @@ gpt_4o = Model(
     name          = 'gpt-4o',
     base_provider = 'openai',
     best_provider = IterListProvider([
-        Chatgpt4o, AI365VIP, Liaobots, Chatgpt4o, AI365VIP, Marsyoo, LiteIcoding, You, OpenaiChat, MagickPenAsk,
+        Chatgpt4o, AI365VIP, Marsyoo, Liaobots, LiteIcoding, OpenaiChat, MagickPenAsk,
     ])
 )
 
@@ -149,7 +148,7 @@ gpt_4o_mini = Model(
     name          = 'gpt-4o-mini',
     base_provider = 'openai',
     best_provider = IterListProvider([
-        DDG, Liaobots, OpenaiChat, You, FreeNetfly, MagickPenChat,
+        DDG, FreeNetfly, MagickPenChat, Liaobots, OpenaiChat,
     ])
 )
 
@@ -306,13 +305,13 @@ claude_2_1 = Model(
 claude_3_opus = Model(
     name          = 'claude-3-opus',
     base_provider = 'Anthropic',
-    best_provider = IterListProvider([You, Liaobots])
+    best_provider = IterListProvider([Liaobots])
 )
 
 claude_3_sonnet = Model(
     name          = 'claude-3-sonnet',
     base_provider = 'Anthropic',
-    best_provider = IterListProvider([You, Liaobots])
+    best_provider = IterListProvider([Liaobots])
 )
 
 claude_3_5_sonnet = Model(
