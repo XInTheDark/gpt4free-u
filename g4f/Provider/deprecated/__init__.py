@@ -24,7 +24,7 @@ from .Yqcloud       import Yqcloud
 from .Aichat        import Aichat
 from .Berlin        import Berlin
 from .AiAsk         import AiAsk
-from .AiChatOnline  import AiChatOnline
+from ..AiChatOnline  import AiChatOnline
 from .ChatAnywhere  import ChatAnywhere
 from .FakeGpt       import FakeGpt
 from .GeekGpt       import GeekGpt
