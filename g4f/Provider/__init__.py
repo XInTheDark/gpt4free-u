@@ -25,7 +25,6 @@ from .Cohere           import Cohere
 from .DDG              import DDG
 from .DeepInfra        import DeepInfra
 from .DeepInfraImage   import DeepInfraImage
-from .Feedough         import Feedough
 from .FlowGpt          import FlowGpt
 from .FreeChatgpt      import FreeChatgpt
 from .FreeGpt          import FreeGpt
