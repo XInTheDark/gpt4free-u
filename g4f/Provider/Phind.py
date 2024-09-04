@@ -15,6 +15,7 @@ class Phind(AsyncGeneratorProvider):
     working = True
     supports_stream = True
     supports_message_history = True
+    default_model = "Phind Instant"
     
     @classmethod
     async def create_async_generator(
@@ -23,7 +24,6 @@ class Phind(AsyncGeneratorProvider):
             messages: Messages,
             proxy: str = None,
             timeout: int = 120,
-            creative_mode: bool = False,
             **kwargs
     ) -> AsyncResult:
         headers = {
@@ -49,27 +49,29 @@ class Phind(AsyncGeneratorProvider):
                 challenge_seeds = data["props"]["pageProps"]["challengeSeeds"]
             
             prompt = messages[-1]["content"]
+            messages = messages[:-1]
             data = {
-                "question": prompt,
-                "question_history": [
-                    message["content"] for message in messages[:-1] if message["role"] == "user"
-                ],
-                "answer_history": [
-                    message["content"] for message in messages if message["role"] == "assistant"
-                ],
-                "webResults": [],
-                "options": {
-                    "date": datetime.now().strftime("%d.%m.%Y"),
-                    "language": "en-US",
-                    "detailed": True,
-                    "anonUserId": "",
-                    "answerModel": "GPT-4" if model.startswith("gpt-4") else "Phind-34B",
-                    "creativeMode": creative_mode,
-                    "customLinks": []
-                },
                 "context": "\n".join([message["content"] for message in messages if message["role"] == "system"]),
+                "options": {
+                    "allowMultiSearch": False,
+                    "anonUserId": "",
+                    "answerModel": cls.default_model,
+                    "customLinks": [],
+                    "date": datetime.now().strftime("%d/%m/%Y"),
+                    "detailed": True,
+                    "language": "en-US",
+                    "searchMode": "never",
+                },
+                "question": prompt,
+                "web_results": None,
             }
+            history = get_chat_history(messages)
+            if history:
+                data["question_and_answer_history"] = history
             data["challenge"] = generate_challenge(data, **challenge_seeds)
+            
+            print(data)
+            
             async with session.post(f"https://https.api.phind.com/infer/", headers=headers, json=data) as response:
                 new_line = False
                 async for line in response.iter_lines():
@@ -144,3 +146,25 @@ def generate_challenge(obj, **kwargs):
         seed=generate_challenge_seed(obj),
         **kwargs
     )
+
+
+def get_chat_history(messages):
+    history = []
+    for message in messages:
+        if message["role"] == "user":
+            history.append({
+                "question": message["content"],
+                "cancelled": False,
+                "context": "",
+                "metadata": {
+                    "mode": "Normal",
+                    "model_name": "Phind Instant",
+                    "images": [],
+                },
+                "customLinks": [],
+                "multiSearchQueries": [],
+                "previousAnswers": [],
+            })
+        elif message["role"] == "assistant":
+            history[-1]["answer"] = message["content"]
+    return history
